@@ -1,5 +1,5 @@
 (ns code-katas-1.core)
-
+(defn foo [v] (print "holaMundo"))
 (defn filter-odd
   "Escribir una funcion que retorne solamente los numeros impares de
    una secuencia"
@@ -15,7 +15,14 @@
   "Escribir una funcion que cree una lista de enteros en un rango dado.
    Restricciones: range"
   [start end]
+  (def list (conj '() start));Defino la lista vacio con el valor inicial.
+  (def loops (- end start))
+  (while(eval (not ( == loops (count list))))
+    (def start (inc start))
+    (def list (conj list start))
   )
+  (reverse list);Invertir la lista porque la funcion conj inserta el incremento al principio.
+ )
 
 (defn compress-sequence
   "Escribir una funcion que elimine los duplicados consecutivos
