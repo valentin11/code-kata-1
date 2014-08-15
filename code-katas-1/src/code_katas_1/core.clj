@@ -1,11 +1,19 @@
 (ns code-katas-1.core)
 (defn foo [v] (print "holaMundo"))
+
 (defn filter-odd
   "Escribir una funcion que retorne solamente los numeros impares de
    una secuencia"
   [s]
+  (def length (count s))
+  (def t (seq s));Creo un lista con el elemteno de entrada, para no tener excepciones.
+  (def list '())
+  (dotimes [loops length]
+    (def number (nth t loops))
+    (if (not (== (mod number 2) 0))(def list (conj list number)));El numero es impar si el resto de la divicion /2 es distinto de cero.
   )
-
+  (reverse list)
+ )
 (defn nil-key
   "Escribir una funcion que dada una clave y un mapa, devuelva true, solamente si el mapa
    contiene una entrada con esa clave, y su valor es nil"
