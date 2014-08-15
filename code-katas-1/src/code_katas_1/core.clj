@@ -15,11 +15,12 @@
   "Escribir una funcion que cree una lista de enteros en un rango dado.
    Restricciones: range"
   [start end]
-  (def list (conj '() start));Defino la lista vacio con el valor inicial.
+  (def list (conj '() start));Defino la lista vacia con el valor inicial.
+  (def aux start)
   (def loops (- end start))
   (while(eval (not ( == loops (count list))))
-    (def start (inc start))
-    (def list (conj list start))
+    (def aux (inc aux))
+    (def list (conj list aux))
   )
   (reverse list);Invertir la lista porque la funcion conj inserta el incremento al principio.
  )
