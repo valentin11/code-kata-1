@@ -13,11 +13,15 @@
     (if (not (== (mod number 2) 0))(def list (conj list number)));El numero es impar si el resto de la divicion /2 es distinto de cero.
   )
   (reverse list)
+  ;Esta funcion la hice asi porque supuse que no se podia usar filter-odd?
  )
 (defn nil-key
   "Escribir una funcion que dada una clave y un mapa, devuelva true, solamente si el mapa
    contiene una entrada con esa clave, y su valor es nil"
-  [k m])
+  [k m]
+  (eval (and (contains? m k) (= (get m k) nil)))
+)
+
 
 (defn range
   "Escribir una funcion que cree una lista de enteros en un rango dado.
@@ -43,7 +47,9 @@
   "Escribir una funcion que reciba un numero variable de parametros
    y retorne el que tenga el valor mayor
    Restricciones: max y max-key"
-  [& args])
+  [& args]
+  (nth (sort args) (- (count (sort args)) 1));Ordeno la lista de menor a manor y tomo el ultimo elemtento de esta.
+)
 
 (defn split-two
   "Escribir una funcion que parta una secuencia en dos partes
@@ -69,6 +75,9 @@
    solamente si alguno de los parametros son true, pero no todos son true. En otro
    caso debera retornar false"
   [& xs]
+  (def vect (into [] xs));Creo un vector con los elementos que la lista de entrada.
+  (eval (and (not-every? true? vect)(some true? vect)))
+  
   )
 
 (defn zip-map
