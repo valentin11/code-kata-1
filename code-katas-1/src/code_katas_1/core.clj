@@ -55,6 +55,17 @@
   "Escribir una funcion que parta una secuencia en dos partes
    Restricciones: split-at"
   [length s]
+  (def first-part [])
+  (def second-part [])
+  (def aux length)
+  (dotimes [loops length]
+    (def first-part (conj first-part (nth s loops)))
+  )
+  (while (eval(not(== aux (count s))))
+    (def second-part (conj second-part (nth s aux)))
+    (def aux (inc aux))
+  )
+  (eval [(eval first-part) (eval second-part)])
   )
 
 (defn inter-two
@@ -76,10 +87,9 @@
    caso debera retornar false"
   [& xs]
   (def vect (into [] xs));Creo un vector con los elementos que la lista de entrada.
-  (eval (and (not-every? true? vect)(some true? vect)))
-  
+  (eval (and (not-every? true? vect)(not (not-any? true? vect))));La primera parte del and chequea que no todos sean true en el vector.
+                                                                 ;La segunda parte del and chequea que haya almenos un true en el vector.  
   )
-
 (defn zip-map
   "Escribir una funcion que reciba un vector de claves y un vector de valores, y
    construya un mapa a partir de ellos.
