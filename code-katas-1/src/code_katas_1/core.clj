@@ -73,7 +73,13 @@
    luego el segundo de cada una, luego el tercero, etc.
    Restricciones: interleave"
   [s1 s2]
+  (def list '())
+  (dotimes [loops (min (count s1) (count s2))]
+    (def list (conj list (nth s1 loops)))
+    (def list (conj list (nth s2 loops)))
   )
+  (reverse list)
+)
 
 (defn retrieve-caps
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
