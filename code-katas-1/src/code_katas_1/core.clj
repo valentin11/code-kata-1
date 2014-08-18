@@ -101,4 +101,10 @@
    construya un mapa a partir de ellos.
    Restricciones: zipmap"
   [k v]
+  (def map {});creo un mapa vacio.
+  (def aux (- (min (count k) (count v)) 1));Para que no se vaya de rango, le resto 1.
+  (dotimes [loops (min (count k) (count v))]
+    (def map (assoc map (nth k (- aux loops)) (nth v (- aux loops))))
   )
+  (eval map)
+ )
