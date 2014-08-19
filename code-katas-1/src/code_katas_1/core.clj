@@ -41,7 +41,13 @@
   "Escribir una funcion que elimine los duplicados consecutivos
    de una secuencia"
   [s]
+  (def output-list (conj '() (nth s 0)))
+  (dotimes [loops (- (count s) 1)]
+    (def truth (not (= (nth s (+ loops 1)) (nth s loops))));No son iguales.
+    (if truth (def output-list (conj output-list (nth s (+ loops 1)))))
   )
+  (reverse output-list)
+)
 
 (defn max-value
   "Escribir una funcion que reciba un numero variable de parametros
