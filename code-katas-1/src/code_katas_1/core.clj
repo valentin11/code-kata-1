@@ -91,17 +91,22 @@
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
    solamente las mayusculas."
   [text]
+  (def upperCaps (filter #(java.lang.Character/isUpperCase %) text))
+  (if (not (empty? upperCaps));Si no esta vacia.
+    (reduce(fn [a b](str a "" b)) upperCaps);Concateno la lista que contiene las mayusculas ej:("\A\B")
+    (reverse '());
   )
+)
 
 (defn find-truth
   "Escribir una funcion que tome un numero variable de booleans, y devuelva true
    solamente si alguno de los parametros son true, pero no todos son true. En otro
    caso debera retornar false"
   [& xs]
-  (def vect (into [] xs));Creo un vector con los elementos que la lista de entrada.
-  (eval (and (not-every? true? vect)(not (not-any? true? vect))));La primera parte del and chequea que no todos sean true en el vector.
-                                                                 ;La segunda parte del and chequea que haya almenos un true en el vector.  
-  )
+(def vect (into [] xs));Creo un vector con los elementos que la lista de entrada.
+(eval (and (not-every? true? vect)(not (not-any? true? vect))));La primera parte del and chequea que no todos sean true en el vector.
+                                                               ;La segunda parte del and chequea que haya almenos un true en el vector.  
+)
 (defn zip-map
   "Escribir una funcion que reciba un vector de claves y un vector de valores, y
    construya un mapa a partir de ellos.
